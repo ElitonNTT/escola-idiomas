@@ -87,7 +87,7 @@ const ContactForm = () => {
               control={form.control}
               name="switch"
               render={({ field }) => (
-                <FormItem className="flex flex-col">
+                <FormItem className="flex">
                   <FormLabel>
                     Aceito receber ofertas por e-mail, SMS e por WhatsApp,
                     consentindo com o tratamento dos meus dados pessoais.
@@ -102,7 +102,7 @@ const ContactForm = () => {
               )}
             />
           </div>
-          <Button type="submit" variant={"submit"} className="mt-2">
+          <Button type="submit" variant={"submit"} className="mt-4 w-full">
             Enviar
           </Button>
         </form>
