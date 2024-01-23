@@ -2,7 +2,7 @@ import ContactForm from "../components/contact-form";
 
 const Welcome = () => {
   return (
-    <div className="bg-waves flex-col items-center justify-center bg-contain md:flex md:h-[90dvh] md:gap-4">
+    <div className="md:bg-waves flex-col items-center justify-center bg-none bg-contain md:flex md:h-[90dvh] md:gap-4">
       <div className="w-full flex-col items-center justify-center p-4 md:flex md:p-0">
         <h1 className="text-center text-3xl font-bold md:text-6xl">
           BEM-VINDO À ESCOLA DE IDIOMAS

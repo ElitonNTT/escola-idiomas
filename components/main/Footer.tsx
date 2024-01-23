@@ -1,5 +1,13 @@
+"use client";
+import { usePathname } from "next/navigation";
+
 const Footer = () => {
+  const path = usePathname();
+  if (path === "/admin") {
+    return <></>;
+  }
   const year = new Date().getFullYear();
+
   return (
     <div className="flex w-full items-center justify-center bg-green-600/85 p-4">
       <div className="flex w-5/6 items-center justify-center">
