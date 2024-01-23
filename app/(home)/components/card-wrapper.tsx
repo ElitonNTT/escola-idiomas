@@ -15,7 +15,7 @@ export const CardWrapper = ({
   headerTitle,
 }: TCardWrapperProps) => {
   return (
-    <Card className="w-[500px] shadow-md">
+    <Card className="w-[95%] shadow-md md:w-[500px]">
       <CardHeader className="px-6 pb-2 pt-4">
         <HeaderForm label={headerLabel} title={headerTitle} />
       </CardHeader>

@@ -61,17 +61,21 @@ const About = () => {
   ];
 
   return (
-    <div className="py-4">
-      <h1 className="flex justify-center self-center text-4xl font-bold">
+    <div className="py-10">
+      <h1 className="flex justify-center self-center text-center text-3xl font-bold">
         Lista de idiomas disponiveis
       </h1>
       <Accordion
         type="single"
         collapsible
-        className="mb-4 flex w-full flex-col items-center justify-around"
+        className="mb-4 flex flex-col items-center justify-around"
       >
         {texts.map((item, index) => (
-          <AccordionItem value={"item" + index} key={index} className="w-4/6">
+          <AccordionItem
+            value={"item" + index}
+            key={index}
+            className="w-5/6 text-justify md:w-3/5"
+          >
             <AccordionTrigger className="text-2xl font-bold">
               {item.titulo}
             </AccordionTrigger>

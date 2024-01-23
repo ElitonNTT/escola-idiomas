@@ -2,17 +2,21 @@ import ContactForm from "../components/contact-form";
 
 const Welcome = () => {
   return (
-    <div className="flex h-screen flex-col items-center justify-evenly bg-zinc-100">
-      <div className="flex w-full flex-col items-center justify-center">
-        <h1 className="text-6xl font-bold">BEM-VINDO à ESCOLA DE IDIOMAS</h1>
-        <h2 className="text-3xl font-semibold">
+    <div className="bg-waves flex-col items-center justify-center bg-contain md:flex md:h-[90dvh] md:gap-4">
+      <div className="w-full flex-col items-center justify-center p-4 md:flex md:p-0">
+        <h1 className="text-center text-3xl font-bold md:text-6xl">
+          BEM-VINDO À ESCOLA DE IDIOMAS
+        </h1>
+        <h2 className="text-center text-xl font-semibold md:text-3xl">
           Venha conhecer nossos programas!
         </h2>
       </div>
-      <div className="flex w-full items-center justify-evenly">
+      <div className="flex w-full flex-col items-center justify-evenly gap-4 md:flex-row md:gap-0">
         <ContactForm />
-        <div className="flex h-[300px] w-[500px] items-center justify-center rounded-3xl bg-zinc-500">
-          <p>Video</p>
+        <div className="glass flex h-[300px] w-[95%] items-center justify-center bg-zinc-500 p-4 md:m-0 md:h-[400px] md:w-[600px]">
+          <p className="flex h-full w-full items-center justify-center rounded-md bg-zinc-200">
+            Video
+          </p>
         </div>
       </div>
     </div>

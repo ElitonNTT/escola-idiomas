@@ -56,9 +56,10 @@ const About = () => {
   ];
 
   return (
-    <div className="py-4">
-      <h1 className="mb-4 flex justify-center self-center text-4xl font-bold">
-        Por que fazer o MBA em Marketing e Estratégias Digitais?
+    <div className="py-10">
+      <h1 className="flex justify-center self-center px-2 text-center text-3xl font-bold">
+        Breve texto para o Sobre mas se ficar muito grande ele quebra o
+        espaçamento
       </h1>
       {texts.map((item, index) => (
         <CardList

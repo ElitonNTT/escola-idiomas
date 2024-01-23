@@ -44,7 +44,7 @@ const ContactForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-lg font-semibold">Nome</FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="Nome" type="text" />
                   </FormControl>
@@ -58,7 +58,9 @@ const ContactForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Telefone</FormLabel>
+                  <FormLabel className="text-lg font-semibold">
+                    Telefone
+                  </FormLabel>
                   <FormControl>
                     <Input {...field} placeholder="+55999999999" type="tel" />
                   </FormControl>
@@ -71,7 +73,9 @@ const ContactForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>E-mail</FormLabel>
+                  <FormLabel className="text-lg font-semibold">
+                    E-mail
+                  </FormLabel>
                   <FormControl>
                     <Input
                       {...field}
@@ -88,7 +92,7 @@ const ContactForm = () => {
               name="switch"
               render={({ field }) => (
                 <FormItem className="flex">
-                  <FormLabel>
+                  <FormLabel className="text-sm font-semibold">
                     Aceito receber ofertas por e-mail, SMS e por WhatsApp,
                     consentindo com o tratamento dos meus dados pessoais.
                   </FormLabel>
