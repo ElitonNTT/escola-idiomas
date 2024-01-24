@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const path = usePathname();
-  if (path === "/admin") {
+  if (path === "/admin/login") {
     return <></>;
   }
   const year = new Date().getFullYear();

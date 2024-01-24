@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const path = usePathname();
-  if (path === "/admin") {
+  if (path === "/admin/login") {
     return <></>;
   }
 
