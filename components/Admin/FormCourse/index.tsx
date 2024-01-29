@@ -115,7 +115,7 @@ export default function FormCourse({ data }: { data?: Course }) {
           },
         )}
       >
-        <span className="mt-4 py-4 text-[24px] font-bold text-secondary">
+        <span className="mt-4 py-4 text-[24px] font-bold text-primary">
           Informaçãoes do curso
         </span>
         <Input
@@ -176,7 +176,7 @@ export default function FormCourse({ data }: { data?: Course }) {
             required: true,
           })}
         />
-        <span className="mt-4 text-[24px] font-bold text-secondary">
+        <span className="mt-4 text-[24px] font-bold text-primary">
           Outras informações do curso
         </span>
         <Input
@@ -186,7 +186,7 @@ export default function FormCourse({ data }: { data?: Course }) {
         />
         {fields.map((item, index) => (
           <div key={item.id} className="my-8">
-            <span className="my-4 mb-8 py-4 text-[16px] font-bold text-secondary">
+            <span className="my-4 mb-8 py-4 text-[16px] font-bold text-primary">
               Grupo de informação {index + 1}
             </span>
             <Input
@@ -223,7 +223,7 @@ export default function FormCourse({ data }: { data?: Course }) {
           Adicionar sessão
         </button>
 
-        <span className="mt-8 py-4 text-[24px] font-bold text-secondary">
+        <span className="mt-8 py-4 text-[24px] font-bold text-primary">
           Acordions
         </span>
         <Input
@@ -236,7 +236,7 @@ export default function FormCourse({ data }: { data?: Course }) {
 
         {accordionFields.map((item, index) => (
           <div key={item.id} className="">
-            <span className="mt-4 py-4 text-[16px] font-bold text-secondary">
+            <span className="mt-4 py-4 text-[16px] font-bold text-primary">
               Acordion {index + 1}
             </span>
             <Input

@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Administração | EPEX",
+  title: "Administração | Escola Idiomas",
   description: "",
 };
 

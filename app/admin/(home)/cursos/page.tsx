@@ -9,7 +9,7 @@ export default async function Pages() {
   return (
     <div className="flex flex-col">
       <div className="flex justify-between">
-        <h1 className="mb-3 text-3xl font-semibold text-secondary lg:text-4xl ">
+        <h1 className="mb-3 text-3xl font-semibold text-primary lg:text-4xl ">
           Cursos
         </h1>
         <Link
