@@ -38,7 +38,7 @@ const ContactForm = () => {
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmitForm)}>
-          <div className="space-y-4 p-2">
+          <div className="space-y-2 2xl:space-y-4 2xl:p-2">
             <FormField
               control={form.control}
               name="name"

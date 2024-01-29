@@ -10,7 +10,7 @@ export default async function Users() {
   return (
     <>
       <div className="flex justify-between">
-        <h1 className="mb-3 text-3xl font-semibold text-secondary lg:text-4xl ">
+        <h1 className="mb-3 text-3xl font-semibold text-primary lg:text-4xl ">
           Administrador
         </h1>
         <FormUser />
