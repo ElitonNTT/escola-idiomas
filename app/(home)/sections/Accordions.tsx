@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
@@ -61,7 +60,7 @@ const About = () => {
   ];
 
   return (
-    <div className="py-10">
+    <div className="py-10 text-gray-700">
       <h1 className="flex justify-center self-center text-center text-3xl font-bold">
         Lista de idiomas disponiveis
       </h1>
