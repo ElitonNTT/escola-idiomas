@@ -35,9 +35,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div className="relative w-full">
-      <Welcome />
-      <About />
-      <Accordions />
+      <Welcome videoId={course.videoId} />
+      <About sections={course.sections} />
+      <Accordions accordion={course.acordions} />
     </div>
   );
 }
