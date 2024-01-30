@@ -1,13 +1,5 @@
-import About from "./sections/About";
-import Accordions from "./sections/Accordions";
-import Welcome from "./sections/Welcome";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div className="relative w-full">
-      <Welcome />
-      <About />
-      <Accordions />
-    </div>
-  );
+  return redirect("/cursos/ingles");
 }

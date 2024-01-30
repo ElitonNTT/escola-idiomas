@@ -1,4 +1,4 @@
-import { CardList } from "../components/card-list";
+import { CardList } from "../card-list";
 
 const About = () => {
   const texts = [

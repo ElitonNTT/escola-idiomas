@@ -1,6 +1,8 @@
-import ContactForm from "../components/contact-form";
+import ContactForm from "@/app/(home)/components/contact-form";
 
-const Welcome = () => {
+type WelcomeProps = {};
+
+export function Welcome({}: WelcomeProps) {
   return (
     <div className="flex-col items-center bg-none bg-contain p-4 text-gray-700 md:flex md:h-[90vh] md:gap-4 md:bg-waves 2xl:justify-evenly">
       <div className="w-full flex-col items-center justify-center p-4 md:flex md:p-0">
@@ -21,6 +23,4 @@ const Welcome = () => {
       </div>
     </div>
   );
-};
-
-export default Welcome;
+}
