@@ -1,9 +1,9 @@
 "use client";
-import { FileField } from "../../utils/Fields";
 import { Course, Prisma } from "@prisma/client";
 import { HTMLProps, forwardRef } from "react";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 import { FaSpinner } from "react-icons/fa";
+import { FileField } from "../../utils/Fields";
 
 type Values = {
   slug: string;

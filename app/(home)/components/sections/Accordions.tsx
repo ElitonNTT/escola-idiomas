@@ -1,5 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { CardList } from "../components/card-list";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const About = () => {
   const texts = [
@@ -56,20 +60,30 @@ const About = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center self-center py-10">
-      <div className="sm:w-2/3 2xl:w-full">
-        <h1 className="flex justify-center self-center px-2 text-center text-3xl font-bold ">
-          Breve texto para o Sobre mas se ficar muito grande ele quebra o
-          espaçamento
-        </h1>
-      </div>
-      {texts.map((item, index) => (
-        <CardList
-          key={index}
-          headerLabel={item.description}
-          headerTitle={item.titulo}
-        />
-      ))}
+    <div className="py-10 text-gray-700">
+      <h1 className="flex justify-center self-center text-center text-3xl font-bold">
+        Lista de idiomas disponiveis
+      </h1>
+      <Accordion
+        type="single"
+        collapsible
+        className="mb-4 flex flex-col items-center justify-around"
+      >
+        {texts.map((item, index) => (
+          <AccordionItem
+            value={"item" + index}
+            key={index}
+            className="w-5/6 text-justify md:w-3/5"
+          >
+            <AccordionTrigger className="text-2xl font-bold">
+              {item.titulo}
+            </AccordionTrigger>
+            <AccordionContent className="text-lg font-medium">
+              {item.description}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import FormCourse from "../../../../../components/Admin/FormCourse";
+import FormCourse from "@/components/Admin/FormCourse";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
@@ -11,7 +11,7 @@ export default async function Home() {
       >
         Voltar <FaArrowLeft />
       </Link>
-      <FormCourse />;
+      <FormCourse />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
+
 async function main() {
   const admin = await prisma.admin.upsert({
     where: { email: "admin@admin.com" },

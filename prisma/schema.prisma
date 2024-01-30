@@ -20,7 +20,7 @@ model Admin {
   name            String
   email           String @unique
   password_digest String
-  role            String
+  role            ROLE
 
   @@map("admins")
 }
