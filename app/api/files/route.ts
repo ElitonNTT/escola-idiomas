@@ -9,9 +9,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "error" }, { status: 400 });
     }
 
-    console.log("aqui");
-    console.log(data);
-
     const [filePath] = await saveFile(file);
 
     return NextResponse.json({

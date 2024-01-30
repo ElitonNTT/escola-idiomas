@@ -3,7 +3,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaSpinner } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaSpinner } from "react-icons/fa";
 
 type Values = {
   email: string;
@@ -19,6 +19,11 @@ export default function LoginAdmin() {
   } = useForm<Values>({ defaultValues: { email: "", password: "" } });
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const handleLogin = async (data: Values) => {
     setLoading(true);
@@ -77,16 +82,25 @@ export default function LoginAdmin() {
           )}
         </label>
         <label className="mb-5 block">
-          <div className="pb-1 text-sm font-semibold text-gray-600 ">Senha</div>
-          <input
-            id="password"
-            {...register("password", { required: "obrigatório" })}
-            type="password"
-            className={[
-              "mt-1 w-full rounded-lg border px-3 py-2 text-sm",
-              errors.password ? "border-red-500" : "",
-            ].join(" ")}
-          />
+          <div className="pb-1 text-sm font-semibold text-gray-600">Senha</div>
+          <div className="relative">
+            <input
+              id="password"
+              {...register("password", { required: "obrigatório" })}
+              type={showPassword ? "text" : "password"}
+              className={[
+                "mt-1 w-full rounded-lg border px-3 py-2 text-sm",
+                errors.password ? "border-red-500" : "",
+              ].join(" ")}
+            />
+            <button
+              type="button"
+              onClick={toggleShowPassword}
+              className="absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer bg-white p-1"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
           {errors.password && (
             <small className="text-red-500">{errors.password.message}</small>
           )}

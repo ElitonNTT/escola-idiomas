@@ -28,7 +28,7 @@ export const CreateConvertion = async ({
       event_type: "CONVERSION",
       event_family: "CDP",
       payload: {
-        conversion_identifier: "EPEX",
+        conversion_identifier: "Escola de Idiomas",
         name: `${name}`.toUpperCase(),
         email: email,
         traffic_source: traffic.value,
