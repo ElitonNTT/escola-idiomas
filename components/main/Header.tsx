@@ -13,7 +13,7 @@ export function Header() {
   return (
     <div className="sticky top-0 z-50 flex h-[10dvh] items-center justify-center bg-white shadow-md">
       <div className="flex w-5/6 items-center justify-between">
-        <Image src={logo_color} alt="logo" width={`100`} height={100} />
+        <Image src={logo_color} alt="logo" width={60} />
         <DropdownMenuCourses />
       </div>
     </div>
