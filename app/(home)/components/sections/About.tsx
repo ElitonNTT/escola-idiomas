@@ -1,59 +1,6 @@
 import { CardList } from "../card-list";
 
-const About = () => {
-  const texts = [
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-    {
-      titulo: "Desafio",
-      description:
-        "Você é um analista de marketing, seja ele social, conteúdo, planejamento ou performance. Sente que precisa expandir sua visão e entender os diversos elementos que impactam suas campanhas?",
-    },
-  ];
-
+const About = ({ sections }: any) => {
   return (
     <div className="flex flex-col items-center self-center py-10 text-gray-700">
       <div className="sm:w-2/3 2xl:w-full">
@@ -62,11 +9,11 @@ const About = () => {
           espaçamento
         </h1>
       </div>
-      {texts.map((item, index) => (
+      {sections.map((item: any, index: any) => (
         <CardList
           key={index}
-          headerLabel={item.description}
-          headerTitle={item.titulo}
+          headerLabel={item.title}
+          headerTitle={item.content}
         />
       ))}
     </div>
