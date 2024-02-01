@@ -4,35 +4,29 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SkeletonList } from "../skeleton-list";
 
-const About = ({ accordion }: any) => {
+export function Accordions({ accordion }: any) {
+  if (!accordion) {
+    return <SkeletonList />;
+  }
+
   return (
-    <div className="py-10 text-gray-700">
-      <h1 className="flex justify-center self-center text-center text-3xl font-bold">
-        Lista de idiomas disponiveis
-      </h1>
-      <Accordion
-        type="single"
-        collapsible
-        className="mb-4 flex flex-col items-center justify-around"
-      >
-        {accordion.map((item: any, index: number) => (
-          <AccordionItem
-            value={"item" + index}
-            key={index}
-            className="w-5/6 text-justify md:w-3/5"
-          >
-            <AccordionTrigger className="text-2xl font-bold">
-              {item.title}
-            </AccordionTrigger>
-            <AccordionContent className="text-lg font-medium">
-              {item.content}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
+    <Accordion type="single" collapsible className="mb-4 px-2 text-[18px] ">
+      {accordion.map((item: any, index: number) => (
+        <AccordionItem
+          value={"item" + index}
+          key={index}
+          className="my-2 rounded-md bg-gray-50 text-[18px]"
+        >
+          <AccordionTrigger className="text-graysecondary text-start text-[18px]">
+            {item.title}
+          </AccordionTrigger>
+          <AccordionContent className="p-2 text-[15px]">
+            {item.content}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
   );
-};
-
-export default About;
+}

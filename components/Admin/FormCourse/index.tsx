@@ -13,11 +13,8 @@ type Values = {
   acordions: Prisma.JsonValue[];
   titleSections: string;
   videoId: string;
-  coordinatorName: string;
-  coordinatorPhotoUrl: string;
   titleAcordions: string;
   bannerUrl: string;
-  type: string;
 };
 
 export default function FormCourse({ data }: { data?: Course }) {
@@ -30,16 +27,13 @@ export default function FormCourse({ data }: { data?: Course }) {
     defaultValues: {
       acordions: data?.acordions || [{ title: "", content: "" }],
       content: data?.content || "",
-      coordinatorName: data?.coordinatorName || "",
       slug: data?.slug || "",
-      coordinatorPhotoUrl: data?.coordinatorPhotoUrl || "",
       sections: data?.sections || [{ title: "", content: "" }],
       title: data?.title || "",
       titleSections: data?.titleSections || "",
       videoId: data?.videoId || "",
       bannerUrl: data?.bannerUrl || "",
       titleAcordions: data?.titleAcordions || "",
-      type: data?.type || "",
     },
   });
 
@@ -64,34 +58,28 @@ export default function FormCourse({ data }: { data?: Course }) {
         onSubmit={handleSubmit(
           async ({
             sections,
-            coordinatorPhotoUrl,
             acordions,
             content,
-            coordinatorName,
             slug,
             title,
             titleSections,
             videoId,
             bannerUrl,
             titleAcordions,
-            type,
           }) => {
             if (!data) {
               fetch(`/api/courses`, {
                 method: "POST",
                 body: JSON.stringify({
                   sections,
-                  coordinatorPhotoUrl,
                   acordions,
                   content,
-                  coordinatorName,
                   slug,
                   title,
                   titleSections,
                   videoId,
                   bannerUrl,
                   titleAcordions,
-                  type,
                 }),
               });
             } else {
@@ -99,16 +87,13 @@ export default function FormCourse({ data }: { data?: Course }) {
                 method: "PUT",
                 body: JSON.stringify({
                   sections,
-                  coordinatorPhotoUrl,
                   acordions,
                   content,
-                  coordinatorName,
                   title,
                   titleSections,
                   videoId,
                   bannerUrl,
                   titleAcordions,
-                  type,
                 }),
               });
             }
@@ -137,16 +122,6 @@ export default function FormCourse({ data }: { data?: Course }) {
           className="mb-4"
           error={errors.title?.message}
           {...register("title", {
-            required: true,
-          })}
-        />
-
-        <Input
-          label="Tipo do curso"
-          type="text"
-          className="mb-4"
-          error={errors.type?.message}
-          {...register("type", {
             required: true,
           })}
         />
@@ -283,34 +258,9 @@ export default function FormCourse({ data }: { data?: Course }) {
           })}
         />
 
-        <Input
-          label="Nome do coordenador do curso"
-          type="text"
-          className="mb-4"
-          error={errors.coordinatorName?.message}
-          {...register("coordinatorName", {
-            required: true,
-          })}
-        />
-
-        <Controller
-          control={control}
-          name={"coordinatorPhotoUrl"}
-          render={({ field: { name, onBlur, onChange, ref, value } }) => (
-            <FileField
-              name={name}
-              onBlur={onBlur}
-              onImageUploaded={(filePath) => onChange(filePath)}
-              ref={ref}
-              preview={value}
-              label={"Foto do coordenador"}
-            />
-          )}
-        />
-
         <div className="flex justify-between">
           {isSubmitSuccessful ? (
-            <p className="text-green-500">Criado com sucesso</p>
+            <p className="text-green-500">Enviado com sucesso</p>
           ) : (
             <>
               <button
@@ -345,35 +295,6 @@ const Input = forwardRef<
         <div>{label}</div>
         <div>
           <input
-            {...props}
-            className={[
-              "block w-full rounded border px-4 py-1 transition-shadow focus:outline-none focus:ring",
-              error ? "border-red-500" : "border-gray-300",
-              className,
-            ].join(" ")}
-            ref={ref}
-          />
-          <p className="text-sm text-red-500">{error}</p>
-        </div>
-      </label>
-    </div>
-  );
-});
-
-const Select = forwardRef<
-  HTMLSelectElement,
-  HTMLProps<HTMLSelectElement> & {
-    label?: string;
-    containerClass?: string;
-    error?: string;
-  }
->(function Select({ className, label, containerClass, error, ...props }, ref) {
-  return (
-    <div className={containerClass}>
-      <label>
-        <div>{label}</div>
-        <div>
-          <select
             {...props}
             className={[
               "block w-full rounded border px-4 py-1 transition-shadow focus:outline-none focus:ring",

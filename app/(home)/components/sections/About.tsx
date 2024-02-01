@@ -1,23 +1,22 @@
+import { JsonValue } from "@prisma/client/runtime/library";
 import { CardList } from "../card-list";
+import { SkeletonList } from "../skeleton-list";
 
-const About = ({ sections }: any) => {
+type AboutProps = {
+  sections: JsonValue[] | null;
+};
+
+export function About({ sections }: AboutProps) {
+  if (!sections) {
+    return <SkeletonList />;
+  }
+
   return (
-    <div className="flex flex-col items-center self-center py-10 text-gray-700">
-      <div className="sm:w-2/3 2xl:w-full">
-        <h1 className="flex justify-center self-center px-2 text-center text-3xl font-bold ">
-          Breve texto para o Sobre mas se ficar muito grande ele quebra o
-          espaçamento
-        </h1>
-      </div>
-      {sections.map((item: any, index: any) => (
-        <CardList
-          key={index}
-          headerLabel={item.title}
-          headerTitle={item.content}
-        />
+    <div className="text-graysecondary flex flex-1 flex-col p-4 text-start sm:m-auto sm:w-2/3">
+      {/* @ts-ignore */}
+      {sections.map(({ title, content }, index: number) => (
+        <CardList key={index} headerLabel={content} headerTitle={title} />
       ))}
     </div>
   );
-};
-
-export default About;
+}

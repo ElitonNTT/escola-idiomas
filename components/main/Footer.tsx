@@ -9,9 +9,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex w-full items-center justify-center bg-[#62ABEC] p-4">
+    <div className="bg-graysecondary flex w-full items-center justify-center p-4">
       <div className="flex w-5/6 items-center justify-center">
-        <span className="text-sm text-black">
+        <span className="text-sm text-white">
           Escola de Idiomas © {year} All rights reserved
         </span>
       </div>

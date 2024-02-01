@@ -62,69 +62,71 @@ export default function LoginAdmin() {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleLogin)}>
-      <div className="px-5 py-7">
-        <label className="mb-5 block">
-          <div className="pb-1 text-sm font-semibold text-gray-600 ">
-            E-mail
-          </div>
-          <input
-            id="email"
-            {...register("email", { required: "obrigatório" })}
-            type="text"
-            className={[
-              "mt-1 w-full rounded-lg border px-3 py-2 text-sm",
-              errors.email ? "border-red-500" : "",
-            ].join(" ")}
-          />
-          {errors.email && (
-            <small className="text-red-500">{errors.email.message}</small>
-          )}
-        </label>
-        <label className="mb-5 block">
-          <div className="pb-1 text-sm font-semibold text-gray-600">Senha</div>
-          <div className="relative">
+    <>
+      <form onSubmit={handleSubmit(handleLogin)}>
+        <div className="px-5 py-7">
+          <label className="mb-5 block">
+            <div className="pb-1 text-sm font-semibold text-gray-600 ">
+              E-mail
+            </div>
             <input
-              id="password"
-              {...register("password", { required: "obrigatório" })}
-              type={showPassword ? "text" : "password"}
+              id="email"
+              {...register("email", { required: "obrigatório" })}
+              type="text"
               className={[
                 "mt-1 w-full rounded-lg border px-3 py-2 text-sm",
-                errors.password ? "border-red-500" : "",
+                errors.email ? "border-red-500" : "",
               ].join(" ")}
             />
-            <button
-              type="button"
-              onClick={toggleShowPassword}
-              className="absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer bg-white p-1"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
-          </div>
-          {errors.password && (
-            <small className="text-red-500">{errors.password.message}</small>
-          )}
-          {errors.root && (
-            <small className="text-red-500">{errors.root.message}</small>
-          )}
-        </label>
-        <button
-          type="submit"
-          disabled={loading}
-          className={`${
-            loading ? "opacity-60" : " "
-          } inline-block w-full rounded-lg bg-primary py-2.5 text-center text-lg font-semibold text-white shadow-sm transition duration-200 hover:bg-opacity-90 hover:shadow-md focus:bg-primary focus:shadow-sm focus:ring-4 focus:ring-primary focus:ring-opacity-50`}
-        >
-          {loading ? (
-            <div className="m-auto flex flex-row items-center">
-              <FaSpinner className="m-auto animate-spin" /> Entrando...
-              <span className="m-auto inline-block"></span>
+            {errors.email && (
+              <small className="text-red-500">{errors.email.message}</small>
+            )}
+          </label>
+          <label className="mb-5 block">
+            <div className="pb-1 text-sm font-semibold text-gray-600">
+              Senha
             </div>
-          ) : (
-            <span className="mr-2 inline-block">Entrar</span>
-          )}
-        </button>
-      </div>
-    </form>
+            <div className="relative">
+              <input
+                id="password"
+                {...register("password", { required: "obrigatório" })}
+                type={showPassword ? "text" : "password"}
+                className={[
+                  "mt-1 w-full rounded-lg border px-3 py-2 text-sm",
+                  errors.password ? "border-red-500" : "",
+                ].join(" ")}
+              />
+              <button
+                type="button"
+                onClick={toggleShowPassword}
+                className="absolute right-3 top-1/2 -translate-y-1/2 transform cursor-pointer bg-white p-1"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
+            {errors.password && (
+              <small className="text-red-500">{errors.password.message}</small>
+            )}
+            {errors.root && (
+              <small className="text-red-500">{errors.root.message}</small>
+            )}
+          </label>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`${loading ? "opacity-60" : " "} bg-blueprimary inline-block w-full rounded-lg py-2.5 text-center text-lg font-semibold text-white shadow-sm transition duration-200 hover:bg-opacity-90 hover:shadow-md focus:bg-primary focus:shadow-sm focus:ring-4 focus:ring-primary focus:ring-opacity-50`}
+          >
+            {loading ? (
+              <div className="m-auto flex flex-row items-center">
+                <FaSpinner className="m-auto animate-spin" /> Entrando...
+                <span className="m-auto inline-block"></span>
+              </div>
+            ) : (
+              <span className="mr-2 inline-block">Entrar</span>
+            )}
+          </button>
+        </div>
+      </form>
+    </>
   );
 }

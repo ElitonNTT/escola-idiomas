@@ -22,6 +22,9 @@ const config = {
         sans: ["'Poppins'", "sans-serif"],
       },
       colors: {
+        graysecondary: "#2B4968",
+        ascent: "#EAEAEA",
+        blueprimary: "#62ABEC",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -11,27 +11,20 @@ import {
 import { useRouter } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa";
 
-export function DropdownMenuCourses() {
+type DropdownMenuCoursesProps = {
+  courses?: {
+    name: string;
+    slug: string;
+  }[];
+};
+
+export function DropdownMenuCourses({ courses }: DropdownMenuCoursesProps) {
   //Isso não está bom => refatorar.
   const router = useRouter();
 
-  const coursesList = [
-    {
-      id: 1,
-      name: "Inglês",
-      slug: "ingles",
-    },
-    {
-      id: 2,
-      name: "Francês",
-      slug: "frances",
-    },
-    {
-      id: 3,
-      name: "Alemão",
-      slug: "alemao",
-    },
-  ];
+  if (!courses) {
+    return null;
+  }
 
   return (
     <DropdownMenu>
@@ -43,8 +36,8 @@ export function DropdownMenuCourses() {
       <DropdownMenuContent>
         <DropdownMenuLabel>Cursos disponiveis</DropdownMenuLabel>
         <DropdownMenuGroup>
-          {coursesList.map((course) => (
-            <DropdownMenuItem key={course.id}>
+          {courses.map((course) => (
+            <DropdownMenuItem key={course.slug}>
               <Button
                 onClick={() => router.push(`/cursos/${course.slug}`)}
                 variant="ghost"

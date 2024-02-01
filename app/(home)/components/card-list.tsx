@@ -9,9 +9,9 @@ type TCardList = {
 
 export const CardList = ({ headerLabel, headerTitle }: TCardList) => {
   return (
-    <div className="flex w-full items-center justify-center">
-      <Card className="w-[95%] border-0 bg-inherit shadow-none md:w-4/6">
-        <CardHeader className="px-6 pb-2 pt-4">
+    <div className="flex w-full text-start">
+      <Card className="w-[95%] border-0 bg-inherit shadow-none md:w-4/5">
+        <CardHeader className="px-4">
           <ItemCardList label={headerLabel} title={headerTitle} />
         </CardHeader>
       </Card>
