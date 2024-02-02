@@ -1,6 +1,6 @@
 "use client";
 import { Card, CardHeader } from "@/components/ui/card";
-import { ItemCardList } from "../components/header-form";
+import ItemCardList from "../components/header-form";
 
 type TCardList = {
   headerLabel: string;
