@@ -1,9 +1,8 @@
 import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma/prismaClient";
+import prisma from "@/lib/prisma/prismaClient";
 import bcrypt from "bcrypt";
 import { getServerSession } from "next-auth";
-import { revalidatePath } from "next/cache";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 
 type AdminProps = { email?: string; password?: string };
 
@@ -14,11 +13,11 @@ export async function PUT(
   }: {
     params: { id: string };
   },
-) {
+): Promise<Response> {
   const session = await getServerSession(authOptions);
 
   if (session == null) {
-    return NextResponse.json({ message: "not logged in" }, { status: 401 });
+    return Response.json({ message: "not logged in" }, { status: 401 });
   }
 
   try {
@@ -33,10 +32,13 @@ export async function PUT(
       data,
     });
 
-    return NextResponse.json("");
+    return Response.json({ messsage: "Success" });
   } catch (e) {
     console.error(e);
-    return NextResponse.error;
+    return Response.json(
+      { error: "Something went wrong:  " + e },
+      { status: 500 },
+    );
   }
 }
 
@@ -47,11 +49,11 @@ export async function DELETE(
   }: {
     params: { id: string };
   },
-) {
+): Promise<Response> {
   const session = await getServerSession(authOptions);
 
   if (session == null) {
-    return NextResponse.json({ message: "not logged in" }, { status: 401 });
+    return Response.json({ message: "not logged in" }, { status: 401 });
   }
 
   try {
@@ -59,12 +61,12 @@ export async function DELETE(
       where: { id: +id },
     });
 
-    const path = request.nextUrl.searchParams.get("path") || "/admin/admins";
-    revalidatePath(path);
-
-    return NextResponse.json({ revalidated: true, now: Date.now() });
+    return Response.json({ messsage: "Success" });
   } catch (e) {
     console.error(e);
-    return NextResponse.error;
+    return Response.json(
+      { error: "Something went wrong:  " + e },
+      { status: 500 },
+    );
   }
 }
