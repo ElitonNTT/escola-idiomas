@@ -15,6 +15,14 @@ enum ROLE {
   EDITOR
 }
 
+model Session {
+  id         String   @id @default(uuid())
+  created_at DateTime @default(now())
+  campaing   String?
+  platform   String?
+  Lead       Lead[]
+}
+
 model Admin {
   id              Int    @id @default(autoincrement())
   name            String
@@ -26,12 +34,14 @@ model Admin {
 }
 
 model Lead {
-  id     Int      @id @default(autoincrement())
-  name   String
-  email  String   @unique
-  phone  String
-  terms  Boolean?
-  course String?
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  phone     String
+  terms     Boolean?
+  course    String?
+  session   Session? @relation(fields: [sessionId], references: [id])
+  sessionId String?
 
   @@map("leads")
 }

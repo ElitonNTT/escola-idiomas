@@ -10,9 +10,15 @@ type Values = {
   phone: string;
   terms: boolean;
   course: string;
+  sessionId?: string;
 };
 
-export default function FormCourses({ course }: { course: string }) {
+type FormCoursesProps = {
+  course: string;
+  sessionId: string;
+};
+
+export default function FormCourses({ course, sessionId }: FormCoursesProps) {
   const {
     register,
     handleSubmit,
@@ -26,6 +32,7 @@ export default function FormCourses({ course }: { course: string }) {
       phone: "",
       terms: false,
       course: course,
+      sessionId,
     },
   });
 
@@ -34,6 +41,7 @@ export default function FormCourses({ course }: { course: string }) {
       const data = {
         ...values,
         course,
+        sessionId,
       };
 
       if (!values.terms) {
@@ -61,10 +69,10 @@ export default function FormCourses({ course }: { course: string }) {
 
   return (
     <>
-      <span className="text-graysecondary text-[15px] font-bold">
+      <span className="text-[15px] font-bold text-graysecondary">
         Quer saber tudo sobre esse curso?
       </span>
-      <span className="text-graysecondary text-[15px]">
+      <span className="text-[15px] text-graysecondary">
         Preencha o formulário abaixo para receber mais informações
       </span>
       <div className="mt-4 flex flex-col space-y-2 md:flex-row">
@@ -141,7 +149,7 @@ export default function FormCourses({ course }: { course: string }) {
           />
           <button
             type="submit"
-            className="bg-blueprimary mx-auto mt-4 w-[60%] rounded-full px-4 py-2 font-semibold text-white"
+            className="mx-auto mt-4 w-[60%] rounded-full bg-blueprimary px-4 py-2 font-semibold text-white"
           >
             Quero saber mais!
           </button>

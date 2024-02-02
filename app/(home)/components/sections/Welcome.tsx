@@ -2,13 +2,15 @@ import ContactForm from "@/app/(home)/components/contact-form";
 
 type WelcomeProps = {
   videoId?: string | null;
+  sessionId: string;
+  course: string;
 };
 
-export function Welcome({ videoId }: WelcomeProps) {
+export function Welcome({ videoId, sessionId, course }: WelcomeProps) {
   return (
     <div className="m-auto sm:mb-8 sm:flex sm:w-2/3">
       <div className="flex flex-1 flex-col p-4 text-center sm:m-auto sm:w-1/3 md:w-1/3">
-        <ContactForm course={""} />
+        <ContactForm course={course} sessionId={sessionId} />
       </div>
       <div className="sm:w-3/3 flex flex-1 flex-col p-4 text-center sm:m-auto md:w-2/3">
         <p className="flex h-full w-full items-center justify-center overflow-hidden rounded-md">

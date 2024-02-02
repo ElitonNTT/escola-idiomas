@@ -5,7 +5,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request): Promise<Response> {
   try {
-    const { name, phone, email, terms, course } = await request.json();
+    const { name, phone, email, terms, course, sessionId } =
+      await request.json();
     const cookieStore = cookies();
     let trafficSource = cookieStore.get("__trf.src");
 
@@ -18,6 +19,7 @@ export async function POST(request: Request): Promise<Response> {
         phone,
         email,
         course,
+        sessionId,
       },
       create: {
         email,
@@ -25,6 +27,7 @@ export async function POST(request: Request): Promise<Response> {
         terms,
         phone,
         course,
+        sessionId,
       },
     });
 

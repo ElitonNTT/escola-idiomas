@@ -1,13 +1,15 @@
 import DataTable from "@/components/Admin/dataTable";
 import { prisma } from "@/lib/prisma/prismaClient";
-import { Lead } from "@prisma/client";
+import { Lead, Session } from "@prisma/client";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 
-const getLeads = prisma.lead.findMany;
-
 export default async function Users() {
-  const data: Lead[] = await getLeads();
+  const data: Lead[] = await prisma.lead.findMany({
+    include: {
+      session: true,
+    },
+  });
 
   return (
     <>
@@ -18,15 +20,27 @@ export default async function Users() {
       </div>
       <DataTable
         data={data}
-        titles={["#", "Nome", "Email", "Telefone", "Curso", "WhatsApp"]}
+        titles={[
+          "#",
+          "Nome",
+          "Email",
+          "Telefone",
+          "Plataforma",
+          "Campanha",
+          "Curso",
+          "WhatsApp",
+        ]}
         idExtractor={(row: { id: { toString: () => any } }) =>
           row.id.toString()
         }
-        rowGenerator={(row: any) => [
+        //@ts-ignore
+        rowGenerator={(row: Lead & { session: Session }) => [
           row.id,
           row.name,
           row.email,
           row.phone,
+          row.session.platform,
+          row.session.campaing,
           row.course,
           <>
             <Link
