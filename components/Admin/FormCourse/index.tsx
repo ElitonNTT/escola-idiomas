@@ -15,6 +15,8 @@ type Values = {
   videoId: string;
   titleAcordions: string;
   bannerUrl: string;
+  copyPrice: string;
+  price: string;
 };
 
 export default function FormCourse({ data }: { data?: Course }) {
@@ -34,6 +36,8 @@ export default function FormCourse({ data }: { data?: Course }) {
       videoId: data?.videoId || "",
       bannerUrl: data?.bannerUrl || "",
       titleAcordions: data?.titleAcordions || "",
+      copyPrice: data?.copyPrice || "",
+      price: data?.price || "",
     },
   });
 
@@ -66,6 +70,8 @@ export default function FormCourse({ data }: { data?: Course }) {
             videoId,
             bannerUrl,
             titleAcordions,
+            copyPrice,
+            price,
           }) => {
             if (!data) {
               fetch(`/api/courses`, {
@@ -80,6 +86,8 @@ export default function FormCourse({ data }: { data?: Course }) {
                   videoId,
                   bannerUrl,
                   titleAcordions,
+                  copyPrice,
+                  price,
                 }),
               });
             } else {
@@ -94,6 +102,8 @@ export default function FormCourse({ data }: { data?: Course }) {
                   videoId,
                   bannerUrl,
                   titleAcordions,
+                  copyPrice,
+                  price,
                 }),
               });
             }
@@ -122,6 +132,24 @@ export default function FormCourse({ data }: { data?: Course }) {
           className="mb-4"
           error={errors.title?.message}
           {...register("title", {
+            required: true,
+          })}
+        />
+        <Input
+          label="Copy Preço"
+          type="text"
+          className="mb-4"
+          error={errors.copyPrice?.message}
+          {...register("copyPrice", {
+            required: true,
+          })}
+        />
+        <Input
+          label="Preço"
+          type="text"
+          className="mb-4"
+          error={errors.price?.message}
+          {...register("price", {
             required: true,
           })}
         />

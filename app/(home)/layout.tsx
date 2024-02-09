@@ -1,25 +1,28 @@
 import "@/app/globals.css";
 import { Footer } from "@/components/main/Footer";
 import { Header } from "@/components/main/Header";
+import { prisma } from "@/lib/prisma/prismaClient";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Escola - Idiomas",
+  title: "Centro de Idiomas",
   description: "Escola de Idiomas",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const coursesList = await prisma.course.findMany();
+
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <Header />
+        <Header listCourses={coursesList} />
         {children}
         <Footer />
       </body>

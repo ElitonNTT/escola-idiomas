@@ -59,6 +59,8 @@ model Course {
   titleAcordions      String?
   bannerUrl           String?
   type                String?
+  price               String?
+  copyPrice           String?
 
   @@map("courses")
 }

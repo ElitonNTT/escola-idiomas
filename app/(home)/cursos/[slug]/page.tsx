@@ -4,6 +4,7 @@ import { Welcome } from "@/app/(home)/components/sections/Welcome";
 import { prisma } from "@/lib/prisma/prismaClient";
 import { Metadata } from "next";
 import HeaderCourse from "../../components/HeaderCourse";
+import { PriceSectionsProps } from "../../components/sections/PriceInfo";
 import Loading from "./loading";
 
 interface pageProps {
@@ -21,8 +22,6 @@ export default async function Page({
   const { slug } = params;
 
   const { platform, campaing } = searchParams;
-
-  console.log(platform, campaing);
 
   const course = await prisma.course.findUnique({
     where: {
@@ -45,12 +44,10 @@ export default async function Page({
     },
   });
 
-  console.log(sessionId);
-
   return (
     <div className="relative h-full w-full">
       <HeaderCourse
-        bannerUrl="https://sspma.com.br/wp-content/uploads/2022/05/ingless.png"
+        bannerUrl={course.bannerUrl}
         content={course.content}
         title={course.title}
       />
@@ -82,6 +79,7 @@ export default async function Page({
         </span>
         <Accordions accordion={course.acordions} />
       </div>
+      <PriceSectionsProps copyPrice={course.copyPrice} price={course.price} />
     </div>
   );
 }

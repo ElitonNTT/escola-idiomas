@@ -8,14 +8,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Course } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa";
 
 type DropdownMenuCoursesProps = {
-  courses?: {
-    name: string;
-    slug: string;
-  }[];
+  courses?: Course[];
 };
 
 export function DropdownMenuCourses({ courses }: DropdownMenuCoursesProps) {
@@ -43,7 +41,7 @@ export function DropdownMenuCourses({ courses }: DropdownMenuCoursesProps) {
                 variant="ghost"
                 className="flex-grow"
               >
-                {course.name}
+                {course.title}
               </Button>
             </DropdownMenuItem>
           ))}
