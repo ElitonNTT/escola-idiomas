@@ -11,6 +11,7 @@
 
 .env
 
+/public/uploads/*
 
 # next.js
 /.next/
