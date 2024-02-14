@@ -44,6 +44,8 @@ export async function PUT(
       bannerUrl,
       titleAcordions,
       type,
+      copyPrice,
+      price,
     } = await request.json();
 
     const created = await prisma.course.update({
@@ -60,6 +62,8 @@ export async function PUT(
         bannerUrl,
         titleAcordions,
         type,
+        copyPrice,
+        price,
       },
     });
 

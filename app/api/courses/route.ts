@@ -16,6 +16,8 @@ export async function POST(request: Request): Promise<Response> {
       bannerUrl,
       titleAcordions,
       type,
+      copyPrice,
+      price,
     } = await request.json();
 
     const created = await prisma.course.upsert({
@@ -32,6 +34,8 @@ export async function POST(request: Request): Promise<Response> {
         bannerUrl,
         titleAcordions,
         type,
+        copyPrice,
+        price,
       },
       create: {
         slug,
@@ -46,6 +50,8 @@ export async function POST(request: Request): Promise<Response> {
         bannerUrl,
         titleAcordions,
         type,
+        copyPrice,
+        price,
       },
     });
 
