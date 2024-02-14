@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Centro de Idiomas  ",
+    template: "%s | Centro de Idiomas FAMA",
     default: "Idiomas",
   },
 };

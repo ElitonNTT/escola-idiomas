@@ -297,6 +297,9 @@ export default function FormCourse({ data }: { data?: Course }) {
             {isSubmitting && <FaSpinner className="animate-spin" />}
             Salvar
           </button>
+          {isSubmitSuccessful && (
+            <span className="text-green-500">Enviado com sucesso</span>
+          )}
         </div>
       </form>
     </>

@@ -19,11 +19,15 @@ export function Accordions({ accordion }: any) {
           key={index}
           className="my-2 rounded-md bg-gray-50 text-[18px]"
         >
-          <AccordionTrigger className="text-graysecondary text-start text-[18px]">
+          <AccordionTrigger className="text-start text-[18px] text-graysecondary">
             {item.title}
           </AccordionTrigger>
           <AccordionContent className="p-2 text-[15px]">
-            {item.content}
+            {item.content.split("\n").map((line: string, index: number) => (
+              <p key={index} className="my-4">
+                {line}
+              </p>
+            ))}
           </AccordionContent>
         </AccordionItem>
       ))}
