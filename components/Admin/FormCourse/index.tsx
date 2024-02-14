@@ -287,22 +287,16 @@ export default function FormCourse({ data }: { data?: Course }) {
         />
 
         <div className="flex justify-between">
-          {isSubmitSuccessful ? (
-            <p className="text-green-500">Enviado com sucesso</p>
-          ) : (
-            <>
-              <button
-                className={[
-                  "mt-3 flex items-center gap-3 rounded bg-green-500 px-7 py-3 font-bold text-white",
-                  isSubmitting ? "opacity-50" : "",
-                ].join(" ")}
-                type="submit"
-              >
-                {isSubmitting && <FaSpinner className="animate-spin" />}
-                Salvar
-              </button>
-            </>
-          )}
+          <button
+            className={[
+              "mt-3 flex items-center gap-3 rounded bg-green-500 px-7 py-3 font-bold text-white",
+              isSubmitting ? "opacity-50" : "",
+            ].join(" ")}
+            type="submit"
+          >
+            {isSubmitting && <FaSpinner className="animate-spin" />}
+            Salvar
+          </button>
         </div>
       </form>
     </>
