@@ -8,7 +8,7 @@ type AboutProps = {
 };
 
 export function About({ sections, titleSections }: AboutProps) {
-  if (!sections || titleSections) {
+  if (!sections || !titleSections) {
     return <SkeletonList />;
   }
 
