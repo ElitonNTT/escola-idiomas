@@ -1,3 +1,4 @@
+import { formatCurrency } from "@/app/utils/formatCurrency";
 import { CardContent, CardHeader } from "@/components/ui/card";
 import { SkeletonList } from "../skeleton-list";
 
@@ -12,9 +13,13 @@ export function PriceSectionsProps({ copyPrice, price }: PriceSectionsProps) {
   }
 
   return (
-    <div className="flex flex-1 flex-col items-center p-4 text-start text-graysecondary sm:m-auto sm:w-2/3">
-      <CardContent className="text-[24px] font-medium">{copyPrice}</CardContent>
-      <CardHeader className="text-[48px] font-bold">R${price}</CardHeader>
+    <div className="flex flex-1 flex-col items-center p-4 text-center text-graysecondary sm:m-auto sm:w-2/3">
+      <CardContent className="text-[24px] font-medium ">
+        {copyPrice}
+      </CardContent>
+      <CardHeader className="text-[48px] font-bold">
+        {formatCurrency(parseFloat(price))}
+      </CardHeader>
     </div>
   );
 }

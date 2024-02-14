@@ -72,14 +72,14 @@ export default async function Page({
           sessionId={sessionId}
         />
       </div>
-      <About sections={course.sections} />
+      <About sections={course.sections} titleSections={course.titleSections} />
+      <PriceSectionsProps copyPrice={course.copyPrice} price={course.price} />
       <div className="mt-4 px-4 sm:m-auto sm:w-2/3 md:w-2/3">
         <span className="my-4 px-4 text-[18px] font-bold text-graysecondary ">
           {course.titleAcordions}
         </span>
         <Accordions accordion={course.acordions} />
       </div>
-      <PriceSectionsProps copyPrice={course.copyPrice} price={course.price} />
     </div>
   );
 }
