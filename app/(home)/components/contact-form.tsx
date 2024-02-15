@@ -24,7 +24,7 @@ export default function FormCourses({ course, sessionId }: FormCoursesProps) {
     handleSubmit,
     control,
     setValue,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful, isLoading },
   } = useForm<Values>({
     defaultValues: {
       name: "",
@@ -147,11 +147,13 @@ export default function FormCourses({ course, sessionId }: FormCoursesProps) {
               </label>
             )}
           />
+
           <button
             type="submit"
-            className="mx-auto mt-4 w-[60%] rounded-full bg-blueprimary px-4 py-2 font-semibold text-white"
+            disabled={isLoading || isSubmitSuccessful}
+            className={`mx-auto mt-4 w-[60%] rounded-full bg-blueprimary px-4 py-2 font-semibold text-white ${isLoading || isSubmitSuccessful ? "opacity-45" : ""}`}
           >
-            Quero saber mais!
+            {isSubmitSuccessful ? "Enviado" : "Quero saber mais"}
           </button>
         </form>
       </div>
