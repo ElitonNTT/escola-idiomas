@@ -1,31 +1,34 @@
-import "@/app/globals.css";
-import { Footer } from "@/components/main/Footer";
-import { Header } from "@/components/main/Header";
-import { prisma } from "@/lib/prisma/prismaClient";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Centro de Idiomas",
-  description: "Escola de Idiomas",
+  description: "",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const coursesList = await prisma.course.findMany();
-
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
-        <Header listCourses={coursesList} />
-        {children}
-        <Footer />
-      </body>
+      <Script src="/facebook.js" strategy="afterInteractive" />
+      <Script src="/tiktok.js" strategy="afterInteractive" />
+      <Script src="/tagmanager.js" strategy="afterInteractive" />
+      <Script src="/analytics.js" strategy="afterInteractive" />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=GTM-5MGRM97"
+        strategy="afterInteractive"
+      />
+      <Script
+        strategy="afterInteractive"
+        src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/bb4c0069-b896-46e7-81ca-d78821d185f0-loader.js"
+      />
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
