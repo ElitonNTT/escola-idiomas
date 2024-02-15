@@ -8,8 +8,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Course } from "@prisma/client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { FaAlignJustify } from "react-icons/fa";
 
 type DropdownMenuCoursesProps = {
@@ -17,11 +18,8 @@ type DropdownMenuCoursesProps = {
 };
 
 export function DropdownMenuCourses({ courses }: DropdownMenuCoursesProps) {
-  //Isso não está bom => refatorar.
-  const router = useRouter();
-
   if (!courses) {
-    return null;
+    return <Skeleton />;
   }
 
   return (
@@ -35,13 +33,9 @@ export function DropdownMenuCourses({ courses }: DropdownMenuCoursesProps) {
         <DropdownMenuLabel>Cursos disponiveis</DropdownMenuLabel>
         <DropdownMenuGroup>
           {courses.map((course) => (
-            <DropdownMenuItem key={course.slug}>
-              <Button
-                onClick={() => router.push(`/cursos/${course.slug}`)}
-                variant="ghost"
-                className="flex-grow"
-              >
-                {course.title}
+            <DropdownMenuItem key={course.slug} className="flex-grow">
+              <Button variant="ghost">
+                <Link href={`/cursos/${course.slug}`}>{course.title}</Link>
               </Button>
             </DropdownMenuItem>
           ))}
